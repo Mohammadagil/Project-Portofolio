@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #0b0d12;
+  --color-surface: #12151c;
+  --color-well: #0f131b;
+  --color-line: #232836;
+  --color-line-strong: #2f3646;
+  --color-fg: #e8eaf0;
+  --color-muted: #9aa3b5;
+  --color-accent: #c6f432;
+  --color-accent-ink: #0b0d12;
+}
+
+@theme inline {
+  --font-display: var(--font-bricolage);
+  --font-sans: var(--font-dm-sans);
+  --font-mono: var(--font-jetbrains);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 88px;
+}
