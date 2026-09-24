@@ -20,23 +20,21 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Mohammad Agil Rofiqul Zein — Fullstack & Backend Developer",
-  description:
-    "Portfolio of Mohammad Agil Rofiqul Zein: Laravel, Node.js, and Next.js projects.",
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${display.variable} ${sans.variable} ${mono.variable}`}
-    >
+    <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
       <body className="bg-canvas font-sans text-fg antialiased">{children}</body>
     </html>
   );
 }
+
+export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  title: "Mohammad Agil Rofiqul Zein — Fullstack & Backend Developer",
+  description: "Portfolio of Mohammad Agil Rofiqul Zein: Laravel, Node.js, and Next.js projects.",
+  openGraph: {
+    title: "Mohammad Agil Rofiqul Zein — Fullstack & Backend Developer",
+    description: "Laravel, Node.js, and Next.js projects.",
+    type: "website",
+  },
+};
