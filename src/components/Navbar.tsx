@@ -14,7 +14,7 @@ export default function Navbar() {
 
   return (
     <header className="border-b border-line">
-      <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-5 md:h-[88px] md:px-24">
+      <div className="mx-auto flex h-16 max-w-360 items-center justify-between px-5 md:h-22 md:px-24">
         <Link href="/" className="font-mono text-lg font-medium">
           agil<span className="text-accent">.dev</span>
         </Link>

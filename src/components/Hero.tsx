@@ -3,7 +3,7 @@ import { profile } from "@/data/content";
 
 export default function Hero() {
   return (
-    <section className="mx-auto grid max-w-[1440px] gap-12 px-5 pb-14 pt-10 md:grid-cols-[1fr_500px] md:items-center md:gap-[72px] md:px-24 md:pb-26 md:pt-22">
+    <section className="mx-auto grid max-w-360 gap-12 px-5 pb-14 pt-10 md:grid-cols-[1fr_500px] md:items-center md:gap-18 md:px-24 md:pb-26 md:pt-22">
       <div className="flex flex-col items-start gap-7 md:gap-8">
         <p className="flex items-center gap-2.5 rounded-full border border-line-strong px-4 py-2 font-mono text-xs text-muted md:text-[13px]">
           <span className="size-2 rounded-full bg-accent" />
@@ -14,7 +14,7 @@ export default function Hero() {
           I build <span className="text-accent">reliable backends</span> and the interfaces on top of them.
         </h1>
 
-        <p className="max-w-[560px] text-[17px] leading-relaxed text-muted md:text-xl">
+        <p className="max-w-140 text-[17px] leading-relaxed text-muted md:text-xl">
           {profile.name} — {profile.intro}
         </p>
 
@@ -29,18 +29,18 @@ export default function Hero() {
       </div>
 
       <div className="flex flex-col">
-        <div className="relative h-[420px] overflow-hidden rounded-3xl border border-line-strong bg-surface md:h-[560px] md:rounded-[28px]">
+        <div className="relative h-105 overflow-hidden rounded-3xl border border-line-strong bg-surface md:h-140 md:rounded-[28px]">
           <Image src={profile.photo} alt={`Portrait of ${profile.name}`} fill priority sizes="(min-width: 768px) 500px, 100vw" className="object-cover" />
         </div>
 
-        <div className="relative ml-3.5 -mt-14 w-[296px] self-start overflow-hidden rounded-2xl border border-line-strong bg-surface font-mono shadow-2xl shadow-black/50 md:-ml-10 md:-mt-[92px] md:w-[340px]">
+        <div className="relative ml-3.5 -mt-14 w-74 self-start overflow-hidden rounded-2xl border border-line-strong bg-surface font-mono shadow-2xl shadow-black/50 md:-ml-10 md:-mt-23 md:w-85">
           <div className="flex items-center gap-1.5 border-b border-line px-4 py-3">
             <span className="size-2 rounded-full bg-line-strong" />
             <span className="size-2 rounded-full bg-line-strong" />
             <span className="size-2 rounded-full bg-line-strong" />
             <span className="ml-2 text-xs text-muted">profile.ts</span>
           </div>
-          <div className="px-4 pb-4 pt-3 text-xs leading-[1.8] md:px-[18px] md:text-[13px]">
+          <div className="px-4 pb-4 pt-3 text-xs leading-[1.8] md:px-4.5 md:text-[13px]">
             <div>
               <span className="text-[#8fa3c7]">const</span> agil = {"{"}
             </div>

@@ -3,7 +3,7 @@ import { stack } from "@/data/content";
 export default function StackStrip() {
   return (
     <section className="border-y border-line">
-      <div className="mx-auto flex max-w-[1440px] flex-col gap-4 px-5 py-7 md:flex-row md:items-center md:gap-10 md:px-24 md:py-8">
+      <div className="mx-auto flex max-w-360 flex-col gap-4 px-5 py-7 md:flex-row md:items-center md:gap-10 md:px-24 md:py-8">
         <span className="shrink-0 font-mono text-xs uppercase tracking-[0.08em] text-muted md:text-[13px]">
           Stack
         </span>

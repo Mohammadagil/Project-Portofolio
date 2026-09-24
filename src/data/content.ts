@@ -4,8 +4,8 @@ export type Project = {
   category: string;
   summary: string;
   tags: string[];
-  image: string;
-  imageAlt: string;
+  image?: string;
+  imageAlt?: string;
   repos: { label: string; url: string }[];
   liveUrl?: string;
   role: string;
@@ -58,6 +58,32 @@ export const experience = [
 
 export const projects: Project[] = [
   {
+    slug: "inventory-web",
+    title: "Inventory Web",
+    category: "Fullstack · Internal System",
+    summary: "A warehouse inventory system for PT. Tjakrindo Mas that records incoming and outgoing goods, tracks stock per item and exports date-range reports to PDF.",
+    tags: ["Laravel 9", "PHP", "MySQL", "Bootstrap 5", "jQuery", "DataTables"],
+    image: "/images/projects/inventory-web.png",
+    imageAlt: "Screenshot of the Inventory Web dashboard",
+    repos: [{ label: "GitHub", url: "https://github.com/Mohammadagil/Project-Inventory-Web-PT.Tjakrindo-Mas" }],
+    role: "System Analyst IT (Intern)",
+    timeline: "23 weeks",
+    overview: [
+      "The warehouse at PT. Tjakrindo Mas needed a reliable way to know how much of each item was in stock and where it had gone. Inventory Web replaces manual records with one system for logging goods coming in and going out, so current stock per item is always visible.",
+      "I worked on it with Laravel 9 and MySQL, covering master data for item types, units, brands and customers, incoming and outgoing transactions, stock monitoring, and three reports that can be filtered by date range and exported to PDF. Access is controlled by four roles (Super Admin, Admin, Operator and Manager), each with its own view, create, update and delete permissions per menu.",
+    ],
+    decisions: [
+      {
+        title: "Menu-level role permissions",
+        text: "Instead of fixed roles, each role gets view, create, update and delete rights per menu, so the company can adjust who can do what without changing code.",
+      },
+      {
+        title: "Server-side tables with DataTables",
+        text: "Transaction and master data lists use Yajra DataTables, so searching, sorting and paging happen on the server and stay fast as the data grows.",
+      },
+    ],
+  },
+  {
     slug: "tiketku",
     title: "Tiketku",
     category: "Fullstack · Web app",
@@ -100,8 +126,8 @@ export const projects: Project[] = [
     category: "Backend · System design",
     summary: "A CRM that brings customer conversations from many channels into one workspace, backed by a documented ERD.",
     tags: ["Node.js", "Express.js", "Sequelize", "MySQL"],
-    image: "/images/projects/omnichannel-crm.png",
-    imageAlt: "Entity relationship diagram of the Omnichannel CRM database",
+    // image: "/images/projects/omnichannel-crm.png",
+    // imageAlt: "Entity relationship diagram of the Omnichannel CRM database",
     repos: [{label: "GitHub", url: "https://github.com/Mohammadagil/Project-Website-Backend-Omnichannel-CRM-Express.js"}],
     role: "Fullstack Developer",
     timeline: "Ongoing",
@@ -117,8 +143,8 @@ export const projects: Project[] = [
     category: "Backend · REST API",
     summary: "A REST API for a subscription-based film and series streaming platform, with a content catalog, subscription orders, Midtrans payments and personal watchlists.",
     tags: ["Node.js", "Express.js", "Prisma", "MySQL", "JWT", "Midtrans"],
-    image: "/images/projects/chillstream.png",
-    imageAlt: "Screenshot of the ChillStream API", 
+    // image: "/images/projects/chillstream.png",
+    // imageAlt: "Screenshot of the ChillStream API", 
     repos: [{label: "GitHub", url: "https://github.com/Mohammadagil/Project-Backend-Harisenin-ChillStream"}],
     role: "Backend Developer",
     timeline: "Ongoing",
