@@ -13,7 +13,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="border-b border-line">
+    <header className="sticky top-0 z-50 border-b border-line bg-canvas/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-360 items-center justify-between px-5 md:h-22 md:px-24">
         <Link href="/" className="font-mono text-lg font-medium">
           mohammadagil<span className="text-accent">.dev</span>
