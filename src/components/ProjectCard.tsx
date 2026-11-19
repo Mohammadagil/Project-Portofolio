@@ -4,9 +4,13 @@ import type { Project } from "@/data/content";
 
 export default function ProjectCard({ project }: { project: Project }) {
   const host = project.liveUrl ? new URL(project.liveUrl).host : "project preview";
+  const externalLinks = [
+    ...project.repos,
+    ...(project.liveUrl ? [{ label: "Live", url: project.liveUrl }] : []),
+  ];
 
   return (
-    <article className="flex flex-col overflow-hidden rounded-[18px] border border-line bg-surface md:rounded-[20px]">
+    <article className="relative flex flex-col overflow-hidden rounded-[18px] border border-line bg-surface transition-colors hover:border-line-strong md:rounded-[20px]">
       <div className="border-b border-line bg-well px-4 pt-4 md:px-6 md:pt-6">
         <div className="overflow-hidden rounded-t-xl border border-b-0 border-line-strong">
           <div className="flex h-[30px] items-center gap-1.5 border-b border-line-strong bg-[#181c25] px-2.5 md:h-[34px] md:px-3">
@@ -38,12 +42,21 @@ export default function ProjectCard({ project }: { project: Project }) {
             </li>
           ))}
         </ul>
-        <div className="flex gap-6 pt-1.5 text-[15px] font-medium md:gap-7">
-          <Link href={`/projects/${project.slug}`} className="py-2.5 text-accent">
-            Case study →
+        <div className="flex flex-wrap gap-3 pt-1.5 text-[15px] font-medium">
+          <Link
+            href={`/projects/${project.slug}`}
+            className="rounded-xl border border-accent/60 bg-transparent px-6 py-2.5 text-accent transition-colors after:absolute after:inset-0 after:content-[''] hover:bg-accent/10"
+          >
+            Case study
           </Link>
-          {project.repos.map((r) => (
-            <a key={r.url} href={r.url} target="_blank" rel="noreferrer" className="py-2.5 hover:text-accent">
+          {externalLinks.map((r) => (
+            <a
+              key={`${r.label}-${r.url}`}
+              href={r.url}
+              target="_blank"
+              rel="noreferrer"
+              className="relative z-10 rounded-xl border border-line-strong bg-transparent px-6 py-2.5 transition-colors hover:border-accent hover:text-accent"
+            >
               {r.label}
             </a>
           ))}
