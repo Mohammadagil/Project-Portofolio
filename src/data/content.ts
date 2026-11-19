@@ -25,7 +25,7 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/mohammad-agil-rofiqul-zein/",
 };
 
-export const stack = ["HTML5", "CSS3", "JavaScript", "PHP", "Laravel", "Node.js", "Express.js", "React.js", "Next.js", "Prisma", "Sequelize", "MySQL", "Git", "RESTful APIs", "Postman", "TypeScript", "Tailwind CSS"];
+export const stack = ["HTML5", "CSS3", "JavaScript", "PHP", "Laravel", "Node.js", "Express.js", "Golang", "React.js", "Next.js", "Prisma", "Sequelize", "MySQL", "Git", "RESTful APIs", "Postman", "TypeScript", "Tailwind CSS"];
 
 export const about = {
   title: "Comfortable in the parts users never see.",
@@ -119,6 +119,66 @@ export const projects: Project[] = [
       "I built both sides. The backend is a Laravel 11 REST API with Sanctum authentication, password reset, rate-limited endpoints, and a booking flow where customers upload payment proof and can resubmit it if an admin rejects it with a reason. Admins manage packages, tiers, kitchens and bookings in a Filament panel. The frontend is a Next.js and TypeScript app styled with Tailwind CSS.",
     ],
     decisions: [],
+  },
+  {
+    slug: "peduly",
+    title: "Peduly",
+    category: "Fullstack · Social impact platform",
+    summary: "A volunteering and donation platform where people join social activities, donate to campaigns and set up recurring donations, powered by a Go API shared by the web, admin and mobile apps.",
+    tags: ["Go", "Goravel", "Gin", "MySQL", "Midtrans", "Next.js", "React 19", "TypeScript", "Tailwind CSS", "SWR"],
+    image: "/images/projects/peduly.png",
+    imageAlt: "Screenshot of the Peduly home page",
+    repos: [],
+    liveUrl: "https://peduly.com",
+    role: "Fullstack Developer",
+    timeline: "Ongoing",
+    overview: [
+      "People who want to help often don't know where to find trustworthy social activities or which campaigns need support. Peduly puts both in one place: users can find nearby volunteer activities, register and check in with a QR code, receive certificates, donate to fundraising campaigns, set up recurring donations and see the impact of their contributions. Companies can also run CSR programs through the platform.",
+      "The backend is the core REST API for every Peduly client (peduly.com, the admin desk, the corporate portal and the mobile app), written in Go with the Laravel-style Goravel framework on Gin and MySQL. It covers users and organizations, activities and attendance, campaigns, donations and disbursements, CSR, notifications over email, WhatsApp and FCM, and Midtrans payments. The frontend is a Next.js 16 and React 19 app written in TypeScript, using SWR for data fetching and Tailwind CSS 4 for styling.",
+      "My work focused on keeping the platform reliable while it kept growing. I shipped feature updates across the Go API and the Next.js front end, and fixed bugs found in internal audits and reported by users. I also audited and tested the website's security, then followed up on the findings, and handled ongoing maintenance so donations, activities and CSR programs kept running smoothly for volunteers, donors and partner organizations.",
+    ],
+    decisions: [
+      {
+        title: "One API for every client",
+        text: "The web, admin, corporate and mobile apps all talk to the same Go API, so business rules for donations, activities and CSR live in one place instead of being repeated in each client.",
+      },
+      {
+        title: "Payments confirmed by webhook",
+        text: "Donation and order status is updated from Midtrans notifications on the server, not from the client, so a transaction is only marked paid once the payment gateway confirms it.",
+      },
+      {
+        title: "Docs-as-code and automated deploys",
+        text: "API contracts are written as Swagger annotations next to the controllers, and releases go out through GitHub Actions on push to main instead of manual deploys on the server.",
+      },
+    ],
+  },
+  {
+    slug: "involuntir",
+    title: "Involuntir",
+    category: "Fullstack · Volunteer platform",
+    summary: "A volunteer platform where people discover social activities near them, register as volunteers and track their contribution hours, while organizations publish activities and manage their volunteers.",
+    tags: ["Laravel 8", "PHP", "MySQL", "JWT", "Midtrans", "Next.js", "React 19", "TypeScript", "Tailwind CSS", "SWR"],
+    image: "/images/projects/involuntir.jpg",
+    imageAlt: "Screenshot of the Involuntir home page",
+    repos: [],
+    liveUrl: "https://involuntir.com",
+    role: "Fullstack Developer (Intern)",
+    timeline: "Ongoing",
+    overview: [
+      "Social organizations struggle to reach enough volunteers, and people who want to help rarely know which activities are happening around them. Involuntir connects the two: volunteers explore activities and committee recruitment in their city, sign up, complete tasks, check in with a QR code and collect certificates and contribution hours, while organizations publish activities, set criteria and tasks, and manage registrations from one dashboard.",
+      "The backend is a Laravel 8 REST API on MySQL with JWT and Sanctum authentication, Google sign-in, activity, criteria and task management, fundraising and donations through Midtrans and Flip, voucher validation, PDF certificates with QR verification, and notifications over email and WhatsApp. The frontend is a Next.js 15 and React 19 app written in TypeScript, using SWR for data fetching and Tailwind CSS for styling.",
+      "I worked on the platform after it was already live. I added and improved features across the Laravel API and the Next.js front end, and fixed bugs that came out of audits and user reports. I also ran security audits and tests on the website to find and close weak spots, and took care of routine maintenance to keep the site stable and up to date for volunteers and organizations.",
+    ],
+    decisions: [
+      {
+        title: "Verifiable certificates",
+        text: "Each certificate is generated as a PDF with a QR code that points to a public verification page, so anyone can confirm that a volunteer really took part in an activity.",
+      },
+      {
+        title: "Payment logic in services",
+        text: "Midtrans, Flip, admin fee calculation and voucher validation live in dedicated service classes, keeping controllers thin and making the payment rules easier to test and change.",
+      },
+    ],
   },
   {
     slug: "omnichannel-crm",
